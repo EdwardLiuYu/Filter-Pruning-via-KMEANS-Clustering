@@ -28,3 +28,7 @@ python ppruning_kmeans_imagenet.py -a resnet18  --save_dir ./snapshots/resnet18_
 ## Training ResNet on CIFAR10
 
 #### Usage of Pruning Training
+
+```bash
+sh scripts/pruning_cifar10_new.sh
+```
