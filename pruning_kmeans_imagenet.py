@@ -370,6 +370,7 @@ def adjust_learning_rate(optimizer, epoch):
     lr = args.lr * (0.1 ** (epoch // args.lr_adjust))
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
+        
 def cos_learning_rate(optimizer, epoch):
     if epoch <= 100-10 and epoch > 30:
         min_lr = args.lr * 0.001
@@ -381,6 +382,7 @@ def cos_learning_rate(optimizer, epoch):
         tmp_lr = args.lr
     for param_group in optimizer.param_groups:
         param_group['lr'] = tmp_lr
+        
 def accuracy(output, target, topk=(1,)):
     """Computes the precision@k for the specified values of k"""
     maxk = max(topk)
@@ -407,7 +409,6 @@ class Mask:
         self.filter_small_index = {}
         self.filter_large_index = {}
         self.similar_matrix = {}
-
 
     @timing
     def get_filter_kmeans(self, weight_torch, distance_rate, length, num_clusters):
@@ -458,7 +459,6 @@ class Mask:
         else:
             pass
         return codebook ,weight_torch
-
 
     def convert2tensor(self, x):
         x = torch.FloatTensor(x)
@@ -567,7 +567,6 @@ class Mask:
 
                 print("layer: %d, number of nonzero weight is %d, zero is %d" % (
                     index, np.count_nonzero(b), len(b) - np.count_nonzero(b)))
-
 
 if __name__ == '__main__':
     main()
