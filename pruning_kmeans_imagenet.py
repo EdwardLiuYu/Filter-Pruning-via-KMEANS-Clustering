@@ -23,7 +23,6 @@ from collections import OrderedDict
 from sklearn.cluster import KMeans
 import math
 
-
 model_names = sorted(name for name in models.__dict__
                      if name.islower() and not name.startswith("__")
                      and callable(models.__dict__[name]))
@@ -175,9 +174,6 @@ def main():
     print("reducing ratio of pruning : %f" % args.pruning_rate)
     print("total remaining ratio is %f" % (1 - args.pruning_rate))
 
-
-   
-    
     m.model = model
     m.init_mask(args.pruning_rate, args.n_clusters)
     m.do_similar_mask()
@@ -188,7 +184,6 @@ def main():
     val_acc_1 = validate(val_loader, model, criterion, log)
     print_log(">>>>> accu after pruning is: {:}".format(val_acc_1),log)
 
-    
     start_time = time.time()
     epoch_time = AverageMeter()
     for epoch in range(args.start_epoch, args.epochs):
@@ -237,8 +232,8 @@ def import_sparse(model):
     model.load_state_dict(new_state_dict)
     print("sparse_model_loaded")
     return model
-
-
+  
+  
 def train(train_loader, model, criterion, optimizer, epoch, log, m):
     batch_time = AverageMeter()
     data_time = AverageMeter()
@@ -289,7 +284,7 @@ def train(train_loader, model, criterion, optimizer, epoch, log, m):
                 epoch, i, len(train_loader), batch_time=batch_time,
                 data_time=data_time, loss=losses, top1=top1, top5=top5), log)
 
-
+            
 def validate(val_loader, model, criterion, log):
     batch_time = AverageMeter()
     losses = AverageMeter()
