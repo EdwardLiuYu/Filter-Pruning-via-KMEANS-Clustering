@@ -15,8 +15,8 @@ CUDA_VISIBLE_DEVICES=$GPU_IDS python  pruning_cifar10.py  ./data/cifar.python --
 --resume $CHECKPOINT_INIT_PATH\
 --use_state_dict \
 --epochs 200 \
---schedule 1 60 120 160 \
---gammas 10 0.2 0.2 0.2 \
+--schedule 60 120 160 \
+--gammas 0.2 0.2 0.2 \
 --learning_rate 0.1 --decay 0.0005 --batch_size 128 \
 --pruning_rate $PRUNING_RATE \
 --layer_begin 0  --layer_end ${NUM_LAYER_END[$MODEL]} --layer_inter 3
@@ -30,8 +30,8 @@ CUDA_VISIBLE_DEVICES=$GPU_IDS python  pruning_cifar10.py  ./data/cifar.python --
 --resume $PRETRAIN_INIT_PATH\
 --use_state_dict \
 --epochs 200 \
---schedule 1 60 120 160 \
---gammas 10 0.2 0.2 0.2 \
+--schedule 60 120 160 \
+--gammas 0.2 0.2 0.2 \
 --learning_rate 0.01 --decay 0.0005 --batch_size 128 \
 --pruning_rate $PRUNING_RATE \
 --layer_begin 0  --layer_end ${NUM_LAYER_END[$MODEL]} --layer_inter 3
