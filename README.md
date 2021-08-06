@@ -1,5 +1,6 @@
 # Filter-Pruning-via-KMEANS-Clustering
-Pytorch implementation for "Filter Pruning via KMeans Clustering"
+Pytorch implementation for "More similar Less Important: Filter Pruning via KMeans Clustering"
+IEEE ICME2021 Poster
 
 This implementation is based on [filter-pruning-geometric-median](https://github.com/he-y/filter-pruning-geometric-median).
 
